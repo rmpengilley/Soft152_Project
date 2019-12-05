@@ -100,10 +100,23 @@ namespace Assignment_form
             txtNeighbourhoodName.Text = districtArray[selectedDistrict].GetSelectedNeighbourhoodName(selectedNeighbourhood);
             txtNumProperties.Text = numProperties.ToString();
 
+            //display property details in edit boxes
+            txtPropID.Text = frmMain.districtArray[selectedDistrict].GetPropertyId(selectedNeighbourhood, selectedProperty);
+            txtPropName.Text = frmMain.districtArray[selectedDistrict].GetPropertyName(selectedNeighbourhood, selectedProperty);
+            txtHostID.Text = frmMain.districtArray[selectedDistrict].GetHostId(selectedNeighbourhood, selectedProperty);
+            txtHostName.Text = frmMain.districtArray[selectedDistrict].GetHostName(selectedNeighbourhood, selectedProperty);
+            txtHostNumProp.Text = frmMain.districtArray[selectedDistrict].GetNumOfPropertiesString(selectedNeighbourhood, selectedProperty);
+            txtLattitude.Text = frmMain.districtArray[selectedDistrict].GetLattitudeOfProperty(selectedNeighbourhood, selectedProperty);
+            txtLongitude.Text = frmMain.districtArray[selectedDistrict].GetLongitudeOfProperty(selectedNeighbourhood, selectedProperty);
+            txtRoomType.Text = frmMain.districtArray[selectedDistrict].GetRoomType(selectedNeighbourhood, selectedProperty);
+            txtPrice.Text = frmMain.districtArray[selectedDistrict].GetPriceString(selectedNeighbourhood, selectedProperty);
+            txtMinNumNights.Text = frmMain.districtArray[selectedDistrict].GetminNights(selectedNeighbourhood, selectedProperty);
+            txtAvailableDays.Text = frmMain.districtArray[selectedDistrict].GetAvailability(selectedNeighbourhood, selectedProperty);
+
             //set selection
             selectedProperty = dgdProperty.CurrentCell.RowIndex;
 
-            //setupDataGrid();
+            SetupDataGrid();
         }
 
         private void BtnAddDistrict_Click(object sender, EventArgs e)
@@ -313,6 +326,14 @@ namespace Assignment_form
 
         private void BtnShow_Click(object sender, EventArgs e)
         {
+            if (loadDataFile.FileName == "")
+            {
+                MessageBox.Show("Please select a datafile to load:");
+                loadDataFile.ShowDialog();
+                dataFileLocation = loadDataFile.FileName;
+                LoadDataFileMethod(); //method to pass datafile into arrays
+            }
+
             DisplayDistrict();
             DisplayNeighbourhood();
             DisplayProperties();
@@ -351,8 +372,6 @@ namespace Assignment_form
         
         private void BtnDeleteProperty_Click(object sender, EventArgs e)
         {
-            //set prop name to null
-            //propertyArray[selectedProperty].set();
             //get inputs
             string tmpPropID = "";
             string tmpPropName = "";
@@ -396,13 +415,13 @@ namespace Assignment_form
             if (lstNeighbourhood.SelectedIndex > -1) //checks if a NHood is selected
             {
                 DisplayProperties();
-                //lstProperty.SelectedIndex = 0;
+                selectedProperty = 0;
             }
             else if (lstNeighbourhood.Items.Count > 0)  //checks if a neighbourhood exists
             {
                 lstNeighbourhood.SelectedIndex = 0;
                 DisplayProperties();
-                //lstProperty.SelectedIndex = 0;
+                selectedProperty = 0;
             }
             else
             {
@@ -420,51 +439,16 @@ namespace Assignment_form
             if (lstNeighbourhood.SelectedIndex > -1) //checks if a nhood is selectced
             {
                 SetupDataGrid(); //if yes, displays property
+                DisplayProperties();
+                selectedProperty = 0;
             }
 
-            //else if (lstProperty.Items.Count >= 0) //if not, checks if there are properties
-            //{
-            //    lstNeighbourhood.SelectedIndex = 0;
-            //    DisplayProperties();
-            //    selectedProperty = 0;
-            //}
             else
             {
-                MessageBox.Show("There are no Prperties in the selected Neighbourhood");
+                MessageBox.Show("There are no Properties in the selected Neighbourhood");
             }
 
         }  //detects changes on nhood selection
-
-        private void LstProperty_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //set selected property
-            //selectedProperty = lstProperty.SelectedIndex;
-            //check that a property is selected and warn if not
-            if (selectedProperty == -1)
-            {
-                MessageBox.Show("Please make a selection!");
-            }
-
-            //display property details in edit text boxes
-            txtPropID.Text = frmMain.districtArray[selectedDistrict].GetPropertyId(selectedNeighbourhood, selectedProperty);
-            txtPropName.Text = frmMain.districtArray[selectedDistrict].GetPropertyName(selectedNeighbourhood, selectedProperty);
-            txtHostID.Text = frmMain.districtArray[selectedDistrict].GetHostId(selectedNeighbourhood, selectedProperty);
-            txtHostName.Text = frmMain.districtArray[selectedDistrict].GetHostName(selectedNeighbourhood, selectedProperty);
-            txtHostNumProp.Text = frmMain.districtArray[selectedDistrict].GetNumOfPropertiesString(selectedNeighbourhood, selectedProperty);
-            txtLattitude.Text = frmMain.districtArray[selectedDistrict].GetLattitudeOfProperty(selectedNeighbourhood, selectedProperty);
-            txtLongitude.Text = frmMain.districtArray[selectedDistrict].GetLongitudeOfProperty(selectedNeighbourhood, selectedProperty);
-            txtRoomType.Text = frmMain.districtArray[selectedDistrict].GetRoomType(selectedNeighbourhood, selectedProperty);
-            txtPrice.Text = frmMain.districtArray[selectedDistrict].GetPriceString(selectedNeighbourhood, selectedProperty);
-            txtMinNumNights.Text = frmMain.districtArray[selectedDistrict].GetminNights(selectedNeighbourhood, selectedProperty);
-            txtAvailableDays.Text = frmMain.districtArray[selectedDistrict].GetAvailability(selectedNeighbourhood, selectedProperty);
-
-            SetupDataGrid();
-
-
-
-        }  //detects changes on property selection
-
-
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
@@ -556,6 +540,8 @@ namespace Assignment_form
                     dgdProperty[j, i].Value = matrix[i, j];
                 }
             }
+            
+            
         }        
 
         private bool NotNullTextBox(TextBox txtCurrent, string userFeedback)
@@ -892,7 +878,7 @@ namespace Assignment_form
             }
             writeDataOut.Close();
             
-        }
+        } //currently disabled - enable in btnExit_Click() function
 
         private void DgdProperty_SelectionChanged(object sender, EventArgs e)
         {
@@ -904,19 +890,67 @@ namespace Assignment_form
             }
 
             //display property details in edit text boxes
-            txtPropID.Text = frmMain.districtArray[selectedDistrict].GetPropertyId(selectedNeighbourhood, selectedProperty);
-            txtPropName.Text = frmMain.districtArray[selectedDistrict].GetPropertyName(selectedNeighbourhood, selectedProperty);
-            txtHostID.Text = frmMain.districtArray[selectedDistrict].GetHostId(selectedNeighbourhood, selectedProperty);
-            txtHostName.Text = frmMain.districtArray[selectedDistrict].GetHostName(selectedNeighbourhood, selectedProperty);
-            txtHostNumProp.Text = frmMain.districtArray[selectedDistrict].GetNumOfPropertiesString(selectedNeighbourhood, selectedProperty);
-            txtLattitude.Text = frmMain.districtArray[selectedDistrict].GetLattitudeOfProperty(selectedNeighbourhood, selectedProperty);
-            txtLongitude.Text = frmMain.districtArray[selectedDistrict].GetLongitudeOfProperty(selectedNeighbourhood, selectedProperty);
-            txtRoomType.Text = frmMain.districtArray[selectedDistrict].GetRoomType(selectedNeighbourhood, selectedProperty);
-            txtPrice.Text = frmMain.districtArray[selectedDistrict].GetPriceString(selectedNeighbourhood, selectedProperty);
-            txtMinNumNights.Text = frmMain.districtArray[selectedDistrict].GetminNights(selectedNeighbourhood, selectedProperty);
-            txtAvailableDays.Text = frmMain.districtArray[selectedDistrict].GetAvailability(selectedNeighbourhood, selectedProperty);
+            DisplayProperties();
 
             SetupDataGrid();
         }
-    }
+
+        private void btnDistrictSearch_Click(object sender, EventArgs e)
+        {
+            int numDist = districtArray.Length;
+            string search = txtDistrictSearch.Text;
+            for (int i = 0; i < numDist; i++)
+            {           
+                if (districtArray[i].GetDistrictName().ToLower() != search.ToLower())
+                {
+                    txtDistrictSearch.Text = "District not found!";                   
+                }
+                else
+                {
+                    lstDistrict.SelectedIndex = i;
+                    txtDistrictSearch.Text = "District found!";
+                    i = numDist;
+                }
+            }
+        }
+
+        private void txtDistrictSearch_Click(object sender, EventArgs e)
+        {
+            txtDistrictSearch.Text = "";
+            txtNeighbourhoodSearch.ForeColor = Color.Black;
+        }
+
+        private void txtNeighbourhoodSearch_Click(object sender, EventArgs e)
+        {
+            txtNeighbourhoodSearch.Text = "";
+            txtNeighbourhoodSearch.ForeColor = Color.Black;
+        }
+
+        private void btnNeighbourhoodSearch_Click(object sender, EventArgs e)
+        {
+            int numDist = districtArray.Length;
+            string search = txtNeighbourhoodSearch.Text;
+
+            for (int i = 0; i < numDist; i++)
+            {
+                int numNeigh = districtArray[i].GetNeighbourhoodsInDistrict();
+                for (int j = 0; j < numNeigh; j++)
+                {
+                    if (districtArray[i].GetNeighbourhoodNames(j).ToLower() != search.ToLower())
+                    {
+                        txtNeighbourhoodSearch.Text = "District not found!";
+                    }
+                    else
+                    {
+                        lstDistrict.SelectedIndex = i;
+                        lstNeighbourhood.SelectedIndex = j;
+                        txtNeighbourhoodSearch.Text = "Neighbourhood found!";
+                        j = numNeigh;
+                        i = numDist;
+                    }
+                    
+                }
+            }
+        }
+    }                
 }

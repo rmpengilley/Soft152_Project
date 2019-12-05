@@ -81,10 +81,14 @@
             this.btnDeleteProperty = new System.Windows.Forms.Button();
             this.btnClearProperty = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnNeighbourhoodSearch = new System.Windows.Forms.Button();
+            this.txtNeighbourhoodSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNumProperties = new System.Windows.Forms.TextBox();
             this.btnDeleteNeigh = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDistrictSearch = new System.Windows.Forms.Button();
+            this.txtDistrictSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumNeighbourhoods = new System.Windows.Forms.TextBox();
             this.btnDeleteDist = new System.Windows.Forms.Button();
@@ -96,7 +100,7 @@
             // 
             // btnAddProperty
             // 
-            this.btnAddProperty.Location = new System.Drawing.Point(1465, 40);
+            this.btnAddProperty.Location = new System.Drawing.Point(1333, 40);
             this.btnAddProperty.Name = "btnAddProperty";
             this.btnAddProperty.Size = new System.Drawing.Size(170, 25);
             this.btnAddProperty.TabIndex = 3;
@@ -106,7 +110,7 @@
             // 
             // btnAddNeighbourhood
             // 
-            this.btnAddNeighbourhood.Location = new System.Drawing.Point(696, 22);
+            this.btnAddNeighbourhood.Location = new System.Drawing.Point(635, 20);
             this.btnAddNeighbourhood.Name = "btnAddNeighbourhood";
             this.btnAddNeighbourhood.Size = new System.Drawing.Size(170, 25);
             this.btnAddNeighbourhood.TabIndex = 4;
@@ -116,7 +120,7 @@
             // 
             // btnAddDistrict
             // 
-            this.btnAddDistrict.Location = new System.Drawing.Point(577, 20);
+            this.btnAddDistrict.Location = new System.Drawing.Point(509, 31);
             this.btnAddDistrict.Name = "btnAddDistrict";
             this.btnAddDistrict.Size = new System.Drawing.Size(170, 25);
             this.btnAddDistrict.TabIndex = 5;
@@ -131,13 +135,13 @@
             this.lstDistrict.Location = new System.Drawing.Point(23, 29);
             this.lstDistrict.Margin = new System.Windows.Forms.Padding(5);
             this.lstDistrict.Name = "lstDistrict";
-            this.lstDistrict.Size = new System.Drawing.Size(137, 132);
+            this.lstDistrict.Size = new System.Drawing.Size(137, 116);
             this.lstDistrict.TabIndex = 6;
             this.lstDistrict.SelectedIndexChanged += new System.EventHandler(this.LstDistrict_SelectedIndexChanged);
             // 
             // btnEditProp
             // 
-            this.btnEditProp.Location = new System.Drawing.Point(1465, 71);
+            this.btnEditProp.Location = new System.Drawing.Point(1333, 71);
             this.btnEditProp.Name = "btnEditProp";
             this.btnEditProp.Size = new System.Drawing.Size(170, 25);
             this.btnEditProp.TabIndex = 7;
@@ -147,7 +151,7 @@
             // 
             // btnEditNeigh
             // 
-            this.btnEditNeigh.Location = new System.Drawing.Point(696, 53);
+            this.btnEditNeigh.Location = new System.Drawing.Point(635, 51);
             this.btnEditNeigh.Name = "btnEditNeigh";
             this.btnEditNeigh.Size = new System.Drawing.Size(170, 25);
             this.btnEditNeigh.TabIndex = 8;
@@ -157,7 +161,7 @@
             // 
             // btnEditDist
             // 
-            this.btnEditDist.Location = new System.Drawing.Point(577, 51);
+            this.btnEditDist.Location = new System.Drawing.Point(509, 62);
             this.btnEditDist.Name = "btnEditDist";
             this.btnEditDist.Size = new System.Drawing.Size(170, 25);
             this.btnEditDist.TabIndex = 9;
@@ -172,13 +176,13 @@
             this.lstNeighbourhood.Location = new System.Drawing.Point(22, 22);
             this.lstNeighbourhood.Margin = new System.Windows.Forms.Padding(5);
             this.lstNeighbourhood.Name = "lstNeighbourhood";
-            this.lstNeighbourhood.Size = new System.Drawing.Size(222, 164);
+            this.lstNeighbourhood.Size = new System.Drawing.Size(222, 148);
             this.lstNeighbourhood.TabIndex = 11;
             this.lstNeighbourhood.SelectedIndexChanged += new System.EventHandler(this.LstNeighbourhood_SelectedIndexChanged);
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(160, 775);
+            this.btnShow.Location = new System.Drawing.Point(160, 728);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(130, 40);
             this.btnShow.TabIndex = 13;
@@ -188,7 +192,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(24, 775);
+            this.btnLoad.Location = new System.Drawing.Point(24, 728);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(130, 40);
             this.btnLoad.TabIndex = 14;
@@ -198,7 +202,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1669, 771);
+            this.btnExit.Location = new System.Drawing.Point(1393, 728);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(130, 41);
             this.btnExit.TabIndex = 15;
@@ -259,7 +263,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(757, 25);
+            this.label19.Location = new System.Drawing.Point(737, 22);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(13, 17);
             this.label19.TabIndex = 100;
@@ -268,7 +272,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1139, 74);
+            this.label18.Location = new System.Drawing.Point(1108, 74);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(13, 17);
             this.label18.TabIndex = 99;
@@ -277,7 +281,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1139, 48);
+            this.label17.Location = new System.Drawing.Point(1108, 48);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(13, 17);
             this.label17.TabIndex = 98;
@@ -286,7 +290,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1194, 22);
+            this.label16.Location = new System.Drawing.Point(1163, 22);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(13, 17);
             this.label16.TabIndex = 97;
@@ -295,7 +299,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(866, 103);
+            this.label15.Location = new System.Drawing.Point(846, 100);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(13, 17);
             this.label15.TabIndex = 96;
@@ -304,7 +308,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(812, 77);
+            this.label14.Location = new System.Drawing.Point(792, 74);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(13, 17);
             this.label14.TabIndex = 95;
@@ -313,7 +317,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(813, 51);
+            this.label12.Location = new System.Drawing.Point(793, 48);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(13, 17);
             this.label12.TabIndex = 94;
@@ -331,7 +335,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(898, 74);
+            this.label11.Location = new System.Drawing.Point(867, 74);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(184, 17);
             this.label11.TabIndex = 92;
@@ -340,7 +344,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(901, 48);
+            this.label10.Location = new System.Drawing.Point(870, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(181, 17);
             this.label10.TabIndex = 91;
@@ -349,7 +353,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1038, 22);
+            this.label9.Location = new System.Drawing.Point(1007, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 17);
             this.label9.TabIndex = 90;
@@ -358,7 +362,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(615, 103);
+            this.label8.Location = new System.Drawing.Point(595, 100);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 17);
             this.label8.TabIndex = 89;
@@ -367,7 +371,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(567, 77);
+            this.label7.Location = new System.Drawing.Point(547, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 17);
             this.label7.TabIndex = 88;
@@ -376,7 +380,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(575, 51);
+            this.label6.Location = new System.Drawing.Point(555, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 17);
             this.label6.TabIndex = 87;
@@ -385,7 +389,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(520, 25);
+            this.label5.Location = new System.Drawing.Point(500, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(180, 17);
             this.label5.TabIndex = 86;
@@ -420,7 +424,7 @@
             // 
             // txtAvailableDays
             // 
-            this.txtAvailableDays.Location = new System.Drawing.Point(1088, 74);
+            this.txtAvailableDays.Location = new System.Drawing.Point(1057, 74);
             this.txtAvailableDays.Name = "txtAvailableDays";
             this.txtAvailableDays.Size = new System.Drawing.Size(45, 23);
             this.txtAvailableDays.TabIndex = 82;
@@ -448,42 +452,42 @@
             // 
             // txtHostNumProp
             // 
-            this.txtHostNumProp.Location = new System.Drawing.Point(706, 25);
+            this.txtHostNumProp.Location = new System.Drawing.Point(686, 22);
             this.txtHostNumProp.Name = "txtHostNumProp";
             this.txtHostNumProp.Size = new System.Drawing.Size(45, 23);
             this.txtHostNumProp.TabIndex = 78;
             // 
             // txtLattitude
             // 
-            this.txtLattitude.Location = new System.Drawing.Point(706, 51);
+            this.txtLattitude.Location = new System.Drawing.Point(686, 48);
             this.txtLattitude.Name = "txtLattitude";
             this.txtLattitude.Size = new System.Drawing.Size(100, 23);
             this.txtLattitude.TabIndex = 77;
             // 
             // txtLongitude
             // 
-            this.txtLongitude.Location = new System.Drawing.Point(706, 77);
+            this.txtLongitude.Location = new System.Drawing.Point(686, 74);
             this.txtLongitude.Name = "txtLongitude";
             this.txtLongitude.Size = new System.Drawing.Size(100, 23);
             this.txtLongitude.TabIndex = 76;
             // 
             // txtRoomType
             // 
-            this.txtRoomType.Location = new System.Drawing.Point(706, 103);
+            this.txtRoomType.Location = new System.Drawing.Point(686, 100);
             this.txtRoomType.Name = "txtRoomType";
             this.txtRoomType.Size = new System.Drawing.Size(154, 23);
             this.txtRoomType.TabIndex = 75;
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(1088, 22);
+            this.txtPrice.Location = new System.Drawing.Point(1057, 22);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 23);
             this.txtPrice.TabIndex = 74;
             // 
             // txtMinNumNights
             // 
-            this.txtMinNumNights.Location = new System.Drawing.Point(1088, 48);
+            this.txtMinNumNights.Location = new System.Drawing.Point(1057, 48);
             this.txtMinNumNights.Name = "txtMinNumNights";
             this.txtMinNumNights.Size = new System.Drawing.Size(45, 23);
             this.txtMinNumNights.TabIndex = 73;
@@ -555,7 +559,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(20, 274);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1676, 475);
+            this.groupBox1.Size = new System.Drawing.Size(1519, 448);
             this.groupBox1.TabIndex = 107;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Property Details";
@@ -567,13 +571,13 @@
             this.dgdProperty.Name = "dgdProperty";
             this.dgdProperty.RowHeadersWidth = 10;
             this.dgdProperty.RowTemplate.Height = 18;
-            this.dgdProperty.Size = new System.Drawing.Size(1613, 290);
+            this.dgdProperty.Size = new System.Drawing.Size(1481, 260);
             this.dgdProperty.TabIndex = 107;
             this.dgdProperty.SelectionChanged += new System.EventHandler(this.DgdProperty_SelectionChanged);
             // 
             // btnDeleteProperty
             // 
-            this.btnDeleteProperty.Location = new System.Drawing.Point(1465, 102);
+            this.btnDeleteProperty.Location = new System.Drawing.Point(1333, 102);
             this.btnDeleteProperty.Name = "btnDeleteProperty";
             this.btnDeleteProperty.Size = new System.Drawing.Size(170, 25);
             this.btnDeleteProperty.TabIndex = 105;
@@ -583,7 +587,7 @@
             // 
             // btnClearProperty
             // 
-            this.btnClearProperty.Location = new System.Drawing.Point(296, 775);
+            this.btnClearProperty.Location = new System.Drawing.Point(296, 728);
             this.btnClearProperty.Name = "btnClearProperty";
             this.btnClearProperty.Size = new System.Drawing.Size(130, 40);
             this.btnClearProperty.TabIndex = 106;
@@ -593,6 +597,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnNeighbourhoodSearch);
+            this.groupBox2.Controls.Add(this.txtNeighbourhoodSearch);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtNumProperties);
             this.groupBox2.Controls.Add(this.btnDeleteNeigh);
@@ -602,12 +608,32 @@
             this.groupBox2.Controls.Add(this.btnEditNeigh);
             this.groupBox2.Controls.Add(this.btnAddNeighbourhood);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(789, 12);
+            this.groupBox2.Location = new System.Drawing.Point(718, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(907, 216);
+            this.groupBox2.Size = new System.Drawing.Size(821, 216);
             this.groupBox2.TabIndex = 108;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Neighbourhood Details:";
+            // 
+            // btnNeighbourhoodSearch
+            // 
+            this.btnNeighbourhoodSearch.Location = new System.Drawing.Point(250, 178);
+            this.btnNeighbourhoodSearch.Name = "btnNeighbourhoodSearch";
+            this.btnNeighbourhoodSearch.Size = new System.Drawing.Size(170, 23);
+            this.btnNeighbourhoodSearch.TabIndex = 112;
+            this.btnNeighbourhoodSearch.Text = "Search";
+            this.btnNeighbourhoodSearch.UseVisualStyleBackColor = true;
+            this.btnNeighbourhoodSearch.Click += new System.EventHandler(this.btnNeighbourhoodSearch_Click);
+            // 
+            // txtNeighbourhoodSearch
+            // 
+            this.txtNeighbourhoodSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtNeighbourhoodSearch.Location = new System.Drawing.Point(22, 178);
+            this.txtNeighbourhoodSearch.Name = "txtNeighbourhoodSearch";
+            this.txtNeighbourhoodSearch.Size = new System.Drawing.Size(222, 23);
+            this.txtNeighbourhoodSearch.TabIndex = 111;
+            this.txtNeighbourhoodSearch.Text = "Type here to search";
+            this.txtNeighbourhoodSearch.Click += new System.EventHandler(this.txtNeighbourhoodSearch_Click);
             // 
             // label2
             // 
@@ -627,7 +653,7 @@
             // 
             // btnDeleteNeigh
             // 
-            this.btnDeleteNeigh.Location = new System.Drawing.Point(696, 84);
+            this.btnDeleteNeigh.Location = new System.Drawing.Point(635, 82);
             this.btnDeleteNeigh.Name = "btnDeleteNeigh";
             this.btnDeleteNeigh.Size = new System.Drawing.Size(170, 25);
             this.btnDeleteNeigh.TabIndex = 107;
@@ -637,6 +663,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnDistrictSearch);
+            this.groupBox3.Controls.Add(this.txtDistrictSearch);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txtNumNeighbourhoods);
             this.groupBox3.Controls.Add(this.btnDeleteDist);
@@ -648,10 +676,32 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(14, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(769, 216);
+            this.groupBox3.Size = new System.Drawing.Size(698, 216);
             this.groupBox3.TabIndex = 109;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "District Details:";
+            // 
+            // btnDistrictSearch
+            // 
+            this.btnDistrictSearch.Location = new System.Drawing.Point(183, 167);
+            this.btnDistrictSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDistrictSearch.Name = "btnDistrictSearch";
+            this.btnDistrictSearch.Size = new System.Drawing.Size(170, 23);
+            this.btnDistrictSearch.TabIndex = 110;
+            this.btnDistrictSearch.Text = "Search";
+            this.btnDistrictSearch.UseVisualStyleBackColor = true;
+            this.btnDistrictSearch.Click += new System.EventHandler(this.btnDistrictSearch_Click);
+            // 
+            // txtDistrictSearch
+            // 
+            this.txtDistrictSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtDistrictSearch.Location = new System.Drawing.Point(23, 167);
+            this.txtDistrictSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDistrictSearch.Name = "txtDistrictSearch";
+            this.txtDistrictSearch.Size = new System.Drawing.Size(137, 23);
+            this.txtDistrictSearch.TabIndex = 109;
+            this.txtDistrictSearch.Text = "Type here to search";
+            this.txtDistrictSearch.Click += new System.EventHandler(this.txtDistrictSearch_Click);
             // 
             // label1
             // 
@@ -671,7 +721,7 @@
             // 
             // btnDeleteDist
             // 
-            this.btnDeleteDist.Location = new System.Drawing.Point(577, 82);
+            this.btnDeleteDist.Location = new System.Drawing.Point(509, 93);
             this.btnDeleteDist.Name = "btnDeleteDist";
             this.btnDeleteDist.Size = new System.Drawing.Size(170, 25);
             this.btnDeleteDist.TabIndex = 106;
@@ -684,7 +734,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1811, 824);
+            this.ClientSize = new System.Drawing.Size(1565, 786);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnClearProperty);
             this.Controls.Add(this.groupBox2);
@@ -768,6 +818,10 @@
         private System.Windows.Forms.TextBox txtNumNeighbourhoods;
         private System.Windows.Forms.Button btnClearProperty;
         private System.Windows.Forms.DataGridView dgdProperty;
+        private System.Windows.Forms.Button btnDistrictSearch;
+        private System.Windows.Forms.TextBox txtDistrictSearch;
+        private System.Windows.Forms.Button btnNeighbourhoodSearch;
+        private System.Windows.Forms.TextBox txtNeighbourhoodSearch;
     }
 }
 
