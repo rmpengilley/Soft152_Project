@@ -26,7 +26,7 @@ namespace Assignment_form
             neighbourhoodsInDistrict = publicNeighbourhoodsInDistrict;
             neighbourhoodArray = allNneighbourhoodArray;
         }
-        public void addNewDistrict(string publicDistrictName, int publicNeighbourhoodsInDistrict)
+        public void AddNewDistrict(string publicDistrictName, int publicNeighbourhoodsInDistrict)
         {
             districtName = publicDistrictName;
             neighbourhoodsInDistrict = publicNeighbourhoodsInDistrict;
