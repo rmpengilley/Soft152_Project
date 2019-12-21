@@ -87,11 +87,16 @@ namespace Assignment_form
             txtDistrictName.Text = districtArray[selectedDistrict].GetDistrictName();
             txtNumNeighbourhoods.Text = numNeighbourhoods.ToString();
 
+            //display average price of properties in the neighbourhood
+            AverageMinMaxPrice();
+
             //set selections
             if (selectedNeighbourhood > 0)
             {
                 lstNeighbourhood.SelectedIndex = 0;
             }
+            lstNeighbourhood.SelectedIndex = 0;
+            
         }
 
         private void DisplayProperties()
@@ -222,11 +227,13 @@ namespace Assignment_form
             //check if district selected
             if (lstDistrict.SelectedIndex > -1) //checks if a district is selected
             {
+                selectedNeighbourhood = 0;
                 DisplayNeighbourhood();
             }
             else
             {
                 lstDistrict.SelectedIndex = 0; //selects the first district
+                selectedNeighbourhood = 0;
                 DisplayNeighbourhood();
             }
             if (lstNeighbourhood.SelectedIndex > -1) //checks if a NHood is selected
@@ -258,11 +265,12 @@ namespace Assignment_form
                 SetupDataGrid(); //if yes, displays property
                 DisplayProperties();
                 selectedProperty = 0;
+                AverageMinMaxPrice();
             }
             else
             {
                 MessageBox.Show("There are no Properties in the selected Neighbourhood");
-            }
+            }           
 
         }  //detects changes on nhood selection
 
@@ -757,6 +765,7 @@ namespace Assignment_form
 
                     //refresh the list boxes
                     DisplayProperties();
+                    AverageMinMaxPrice();
                 }
 
             }
@@ -826,6 +835,7 @@ namespace Assignment_form
             ClearPropertyTextBoxes();
             MessageBox.Show("The selected Property has been deleted!");
             DisplayProperties();
+            AverageMinMaxPrice();
 
             //change buttons
             btnEditProp.Enabled = true;
@@ -992,6 +1002,40 @@ namespace Assignment_form
 
             //Write data back to file
             WriteDataFile();
-        } 
+        }
+
+        private void AverageMinMaxPrice()
+        {
+            //if (selectedNeighbourhood == -1)
+            //{
+            //    selectedNeighbourhood = 0;
+            //    lstNeighbourhood.SelectedIndex = 0;
+            //}
+            int numProp = districtArray[selectedDistrict].GetPropertiesInNeighbourhood(selectedNeighbourhood);
+            double[] tmpPriceArray = new double[numProp];
+
+            for (int i = 0; i < numProp; i++)
+            {
+                double tmpPropPrice = districtArray[selectedDistrict].GetPrice(selectedNeighbourhood, i);
+                tmpPriceArray[i] = tmpPropPrice;
+            }
+
+            double sum = 0;
+            for (int i = 0; i < numProp; i++)
+                sum += tmpPriceArray[i];
+
+            double avePrice = sum / numProp;
+            lblAveRoomPrice.Text = "$" + avePrice.ToString("0.00");
+
+            //sort array for min/max room price.
+            Array.Sort(tmpPriceArray);
+
+            //display min/max room prices
+            lblMinRoomPrice.Text = "$" + tmpPriceArray[0].ToString("0.00");
+            int arrLength = tmpPriceArray.Length;
+            lblMaxRoomPrice.Text = "$" + tmpPriceArray[arrLength-1].ToString("0.00");
+
+
+        }
     }                
 }
